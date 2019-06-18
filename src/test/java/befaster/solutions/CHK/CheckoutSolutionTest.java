@@ -72,6 +72,13 @@ public class CheckoutSolutionTest {
         thenResultIs(210);
     }
 
+    @Test
+    public void should_apply_a_promotion_multiple_times_if_necessary() {
+        givenInputIs("AAABAAA");
+        whenICallCheckout();
+        thenResultIs(290);
+    }
+
     private void givenInputIs(final String value) {
         skus = value;
     }
@@ -84,5 +91,3 @@ public class CheckoutSolutionTest {
         assertEquals(expectedValue, result);
     }
 }
-
-

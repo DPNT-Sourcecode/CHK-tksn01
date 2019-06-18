@@ -28,10 +28,23 @@ public class CheckoutSolution {
         }
 
         int totalSum = 0;
+        for (final Item item : skusWithOccurencesMap.keySet()) {
+            final Integer numberOfOccurrences = skusWithOccurencesMap.get(item);
+            int numberOfTimesToApplyPromotion;
+            switch (item) {
+                case A:
+                    numberOfTimesToApplyPromotion = numberOfOccurrences / 3;
+                    totalSum += numberOfOccurrences * item.getPrice() - numberOfTimesToApplyPromotion * 20;
+                    break;
+                case B:
+                    numberOfTimesToApplyPromotion = numberOfOccurrences / 2;
+                    totalSum += numberOfOccurrences * item.getPrice() - numberOfTimesToApplyPromotion * 15;
+                    break;
+                default:
+                    totalSum += numberOfOccurrences * item.getPrice();
+            }
+        }
 
-
-        return 0;
+        return totalSum;
     }
 }
-
-
