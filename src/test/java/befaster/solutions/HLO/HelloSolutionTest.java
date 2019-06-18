@@ -16,7 +16,12 @@ public class HelloSolutionTest {
     }
 
     @Test
-    public void should_print_a_message() {
-        assertThat(helloSolution.hello("Test_User"), equalTo("Hello, World!"));
+    public void should_print_a_message_given_correct_input() {
+        assertThat(helloSolution.hello("Test_User"), equalTo("Hello, Test_User!"));
+    }
+
+    @Test
+    public void should_handle_null_input() {
+        assertThat(helloSolution.hello(null), equalTo("Hello, !"));
     }
 }
