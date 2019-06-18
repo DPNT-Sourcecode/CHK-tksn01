@@ -27,7 +27,7 @@ public class CheckoutSolutionTest {
     public void should_return_default_value_for_empty_string() {
         givenInputIs("");
         whenICallCheckout();
-        thenResultIs(-1);
+        thenResultIs(0);
     }
 
     @Test
@@ -91,3 +91,4 @@ public class CheckoutSolutionTest {
         assertEquals(expectedValue, result);
     }
 }
+

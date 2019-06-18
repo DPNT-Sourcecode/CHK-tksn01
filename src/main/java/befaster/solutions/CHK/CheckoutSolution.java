@@ -10,7 +10,7 @@ import java.util.Map;
 public class CheckoutSolution {
 
     public Integer checkout(String skus) {
-        if (skus == null || skus.isEmpty() || skus.trim().isEmpty()) {
+        if (skus == null) {
             return -1;
         }
 
@@ -44,5 +44,6 @@ public class CheckoutSolution {
         return totalSum;
     }
 }
+
 
 
