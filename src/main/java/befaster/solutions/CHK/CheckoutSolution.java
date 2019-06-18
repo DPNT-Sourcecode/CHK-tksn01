@@ -14,48 +14,35 @@ public class CheckoutSolution {
             return -1;
         }
 
-        final Map<Item, Integer> skusWithOccurencesMap = new HashMap<>();
+        final Map<Item, Integer> skusWithOccurrencesMap = new HashMap<>();
         for (final Item item : Item.values()) {
-            skusWithOccurencesMap.put(item, 0);
+            skusWithOccurrencesMap.put(item, 0);
         }
 
         for (int index = 0; index < skus.length(); index++) {
             try {
                 final Item item = Item.valueOf(String.valueOf(skus.charAt(index)));
-                final Integer currentNumberOfOccurences = skusWithOccurencesMap.get(item);
-                skusWithOccurencesMap.put(item, currentNumberOfOccurences + 1);
+                final Integer currentNumberOfOccurrences = skusWithOccurrencesMap.get(item);
+                skusWithOccurrencesMap.put(item, currentNumberOfOccurrences + 1);
             } catch (final Exception e) {
                 return -1;
             }
         }
 
         int totalSum = 0;
-        for (final Item item : skusWithOccurencesMap.keySet()) {
-            final Integer numberOfOccurrences = skusWithOccurencesMap.get(item);
-            int numberOfTimesToApplyPromotion;
-            Promotion promotion;
+        for (final Item item : skusWithOccurrencesMap.keySet()) {
+            final Integer numberOfOccurrences = skusWithOccurrencesMap.get(item);
             try {
-                promotion = Promotion.getByItem(item);
-                numberOfTimesToApplyPromotion = numberOfOccurrences / promotion.getQuantity();
+                final Promotion promotion = Promotion.getByItem(item);
+                final int numberOfTimesToApplyPromotion = numberOfOccurrences / promotion.getQuantity();
                 totalSum += numberOfOccurrences * item.getPrice() - numberOfTimesToApplyPromotion * promotion.getSaving();
             } catch (final NoPromotionAvailableException ignored) {
                 totalSum += numberOfOccurrences * item.getPrice();
             }
-//            switch (item) {
-//                case A:
-//                    numberOfTimesToApplyPromotion = numberOfOccurrences / 3;
-//                    totalSum += numberOfOccurrences * item.getPrice() - numberOfTimesToApplyPromotion * 20;
-//                    break;
-//                case B:
-//                    numberOfTimesToApplyPromotion = numberOfOccurrences / 2;
-//                    totalSum += numberOfOccurrences * item.getPrice() - numberOfTimesToApplyPromotion * 15;
-//                    break;
-//                default:
-//                    totalSum += numberOfOccurrences * item.getPrice();
-//            }
         }
 
         return totalSum;
     }
 }
+
 
