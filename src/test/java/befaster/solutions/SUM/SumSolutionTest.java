@@ -30,4 +30,3 @@ public class SumSolutionTest {
         assertThat(sum.compute(-5, 4), equalTo(-1));
     }
 }
-
