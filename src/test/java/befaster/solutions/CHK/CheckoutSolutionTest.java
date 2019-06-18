@@ -39,7 +39,30 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_calculate_total_price_when_no_offers_are_present() {
-        givenInputIs("ABCD");
+        givenInputIs("ABCDAD");
+        whenICallCheckout();
+        thenResultIs(165);
+    }
+
+    @Test
+    public void should_calculate_total_price_and_apply_promotion_1() {
+        givenInputIs("ABACA");
+        whenICallCheckout();
+        thenResultIs(180);
+    }
+
+    @Test
+    public void should_calculate_total_price_and_apply_promotion_2() {
+        givenInputIs("DBBAC");
+        whenICallCheckout();
+        thenResultIs(130);
+    }
+
+    @Test
+    public void should_calculate_total_price_and_apply_both_promotions() {
+        givenInputIs("ABABDAC");
+        whenICallCheckout();
+        thenResultIs(210);
     }
 
     private void givenInputIs(final String value) {
