@@ -46,9 +46,9 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_calculate_total_price_when_no_offers_are_present() {
-        givenInputIs("ABCDAD");
+        givenInputIs("ABCD");
         whenICallCheckout();
-        thenResultIs(165);
+        thenResultIs(115);
     }
 
     @Test
