@@ -1,7 +1,10 @@
 package befaster.solutions.CHK.domain;
 
 public enum Item {
-    A("A", );
+    A("A", 50),
+    B("B", 30),
+    C("C", 20),
+    D("D", 15);
 
     private final String sku;
     private final int price;
