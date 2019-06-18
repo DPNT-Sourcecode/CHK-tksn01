@@ -19,4 +19,15 @@ public class SumSolutionTest {
     public void compute_sum() {
         assertThat(sum.compute(1, 1), equalTo(2));
     }
+
+    @Test
+    public void compute_sum_with_0_term() {
+        assertThat(sum.compute(0, 3), equalTo(3));
+    }
+
+    @Test
+    public void compute_sum_with_negative_term() {
+        assertThat(sum.compute(-5, 4), equalTo(-1));
+    }
 }
+
