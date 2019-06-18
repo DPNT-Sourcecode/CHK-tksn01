@@ -38,6 +38,13 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void should_return_default_value_for_blank_string() {
+        givenInputIs("  ");
+        whenICallCheckout();
+        thenResultIs(-1);
+    }
+
+    @Test
     public void should_calculate_total_price_when_no_offers_are_present() {
         givenInputIs("ABCDAD");
         whenICallCheckout();
@@ -77,4 +84,5 @@ public class CheckoutSolutionTest {
         assertEquals(expectedValue, result);
     }
 }
+
 
