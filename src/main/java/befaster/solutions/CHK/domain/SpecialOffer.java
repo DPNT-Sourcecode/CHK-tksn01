@@ -25,6 +25,6 @@ public class SpecialOffer implements Offer {
         final int numberOfBulks = basketQuantity / requiredQuantity;
         basket.remove(freeItem, freeItemQuantity * numberOfBulks);
         basket.remove(requiredItem, requiredQuantity * numberOfBulks);
-        return requiredItem.getPrice() * basketQuantity;
+        return requiredItem.getPrice() * requiredQuantity * numberOfBulks;
     }
 }
