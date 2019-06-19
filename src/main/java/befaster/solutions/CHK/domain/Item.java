@@ -1,25 +1,21 @@
 package befaster.solutions.CHK.domain;
 
 public enum Item {
-    A("A", 50),
-    B("B", 30),
-    C("C", 20),
-    D("D", 15),
-    E("E", 40);
+    A(50),
+    B(30),
+    C(20),
+    D(15),
+    E(40),
+    F(10);
 
-    private final String sku;
     private final int price;
 
-    Item(final String sku, final int price) {
-        this.sku = sku;
+    Item(final int price) {
         this.price = price;
-    }
-
-    public String getSku() {
-        return sku;
     }
 
     public int getPrice() {
         return price;
     }
 }
+

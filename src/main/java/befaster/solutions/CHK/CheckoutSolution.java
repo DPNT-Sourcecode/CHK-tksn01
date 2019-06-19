@@ -18,8 +18,10 @@ public class CheckoutSolution {
         final Offer offer6 = new MultiBuyOffer(Item.D, 1, 0);
         final Offer offer7 = new MultiBuyOffer(Item.A, 5, 50);
         final Offer offer8 = new MultiBuyOffer(Item.E, 1, 0);
+        final Offer offer9 = new MultiBuyOffer(Item.F, 1, 0);
+        final Offer offer10 = new MultiBuyOffer(Item.F, 3, 10);
         final Offer specialOffer = new SpecialOffer(Item.E, 2, Item.B, 1);
-        orderedOffers = Arrays.asList(specialOffer, offer7, offer1, offer2, offer3, offer4, offer5, offer6, offer8);
+        orderedOffers = Arrays.asList(specialOffer, offer7, offer1, offer2, offer10, offer3, offer4, offer5, offer6, offer8, offer9);
     }
 
     public Integer checkout(String skus) {
@@ -51,3 +53,4 @@ public class CheckoutSolution {
         return totalSum;
     }
 }
+

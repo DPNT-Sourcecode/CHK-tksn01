@@ -32,6 +32,9 @@ public class CheckoutSolutionTest {
         put("AAACEAA", 260);
         put("EEEB", 120);
         put("ABCDECBAABCABBAAAEEAA", 665);
+        put("FFF", 20);
+        put("FF", 20);
+        put("FFFEEB", 100);
     }};
 
     private CheckoutSolution checkoutSolution;
