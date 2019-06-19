@@ -1,5 +1,7 @@
 package befaster.solutions.CHK.domain;
 
+import java.util.Objects;
+
 public class MultiBuyOffer implements Offer {
 
     private final Item requiredItem;
@@ -30,4 +32,5 @@ public class MultiBuyOffer implements Offer {
         return discount;
     }
 }
+
 
