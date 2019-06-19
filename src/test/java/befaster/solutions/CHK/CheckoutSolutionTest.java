@@ -47,7 +47,7 @@ public class CheckoutSolutionTest {
         put("STX", 45);
         put("XYZ", 45);
         put("XYT", 45);
-//        put("SAS", 90);
+        put("SAS", 90);
     }};
 
     private CheckoutSolution checkoutSolution;
@@ -62,3 +62,4 @@ public class CheckoutSolutionTest {
         TEST_CASES.forEach((skus, expectedTotal) -> assertEquals(expectedTotal, checkoutSolution.checkout(skus)));
     }
 }
+
