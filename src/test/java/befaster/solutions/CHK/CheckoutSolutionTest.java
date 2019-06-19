@@ -31,7 +31,7 @@ public class CheckoutSolutionTest {
         put("AAAEEAA", 280);
         put("AAACEAA", 260);
         put("EEEB", 120);
-        put("ABCDECBAABCABBAAAEEAA", 665);
+//        put("ABCDECBAABCABBAAAEEAA", 665);
     }};
 
     private CheckoutSolution checkoutSolution;
@@ -44,5 +44,11 @@ public class CheckoutSolutionTest {
     @Test
     public void should_combine_all_promotions_on_the_same_item_if_enough_qty() {
         TEST_CASES.forEach((skus, expectedTotal) -> assertEquals(expectedTotal, checkoutSolution.checkout(skus)));
+    }
+
+    @Test
+    public void debug_failed_test() {
+        final int result = checkoutSolution.checkout("ABCDECBAABCABBAAAEEAA");
+        assertEquals(665, result);
     }
 }
