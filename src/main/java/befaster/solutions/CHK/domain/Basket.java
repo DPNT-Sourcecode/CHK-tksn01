@@ -30,7 +30,16 @@ public final class Basket {
         return items.isEmpty();
     }
 
+    public boolean contains(final Item item) {
+        return contains(item, 1);
+    }
+
+    public boolean contains(final Item item, final int quantity) {
+        return items.containsKey(item) && items.get(item) >= quantity;
+    }
+
     public Map<Item, Integer> getItems() {
         return items;
     }
 }
+

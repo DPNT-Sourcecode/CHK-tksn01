@@ -14,7 +14,7 @@ public class MultiBuyOffer implements Offer {
 
     @Override
     public boolean supports(final Basket basket) {
-        return basket.getItems().containsKey(requiredItem) && basket.getItems().get(requiredItem) >= requiredQuantity;
+        return basket.contains(requiredItem, requiredQuantity);
     }
 
     @Override
@@ -26,4 +26,5 @@ public class MultiBuyOffer implements Offer {
         return discountedPrice;
     }
 }
+
 
