@@ -15,7 +15,7 @@ public abstract class Offers {
     private static final MultiBuyOffer OFFER_3 = new MultiBuyOffer(Item.F, 3, 10);
     private static final MultiBuyOffer OFFER_4 = new MultiBuyOffer(Item.H, 5, 5);
     private static final MultiBuyOffer OFFER_5 = new MultiBuyOffer(Item.H, 10, 20);
-    private static final MultiBuyOffer OFFER_6 = new MultiBuyOffer(Item.K, 2, 10);
+    private static final MultiBuyOffer OFFER_6 = new MultiBuyOffer(Item.K, 2, 20);
     private static final MultiBuyOffer OFFER_7 = new MultiBuyOffer(Item.P, 5, 50);
     private static final MultiBuyOffer OFFER_8 = new MultiBuyOffer(Item.Q, 3, 10);
     private static final MultiBuyOffer OFFER_9 = new MultiBuyOffer(Item.U, 4, 40);
@@ -53,3 +53,4 @@ public abstract class Offers {
         return orderedOffers;
     }
 }
+
