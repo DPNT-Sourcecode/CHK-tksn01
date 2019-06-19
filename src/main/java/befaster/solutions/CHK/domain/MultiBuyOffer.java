@@ -25,4 +25,9 @@ public class MultiBuyOffer implements Offer {
         basket.remove(requiredItem, requiredQuantity * numberOfBulks);
         return discountedPrice;
     }
+
+    public int getDiscount() {
+        return discount;
+    }
 }
+

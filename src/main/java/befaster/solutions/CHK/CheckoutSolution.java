@@ -2,7 +2,9 @@ package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.domain.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class CheckoutSolution {
@@ -10,18 +12,22 @@ public class CheckoutSolution {
     private final List<Offer> orderedOffers;
 
     public CheckoutSolution() {
-        final Offer offer1 = new MultiBuyOffer(Item.A, 3, 20);
-        final Offer offer2 = new MultiBuyOffer(Item.B, 2, 15);
-        final Offer offer3 = new MultiBuyOffer(Item.A, 1, 0);
-        final Offer offer4 = new MultiBuyOffer(Item.B, 1, 0);
-        final Offer offer5 = new MultiBuyOffer(Item.C, 1, 0);
-        final Offer offer6 = new MultiBuyOffer(Item.D, 1, 0);
-        final Offer offer7 = new MultiBuyOffer(Item.A, 5, 50);
-        final Offer offer8 = new MultiBuyOffer(Item.E, 1, 0);
-        final Offer offer9 = new MultiBuyOffer(Item.F, 1, 0);
-        final Offer offer10 = new MultiBuyOffer(Item.F, 3, 10);
-        final Offer specialOffer = new SpecialOffer(Item.E, 2, Item.B, 1);
-        orderedOffers = Arrays.asList(specialOffer, offer7, offer1, offer2, offer10, offer3, offer4, offer5, offer6, offer8, offer9);
+        final MultiBuyOffer offer1 = new MultiBuyOffer(Item.A, 3, 20);
+        final MultiBuyOffer offer2 = new MultiBuyOffer(Item.B, 2, 15);
+        final MultiBuyOffer offer3 = new MultiBuyOffer(Item.A, 1, 0);
+        final MultiBuyOffer offer4 = new MultiBuyOffer(Item.B, 1, 0);
+        final MultiBuyOffer offer5 = new MultiBuyOffer(Item.C, 1, 0);
+        final MultiBuyOffer offer6 = new MultiBuyOffer(Item.D, 1, 0);
+        final MultiBuyOffer offer7 = new MultiBuyOffer(Item.A, 5, 50);
+        final MultiBuyOffer offer8 = new MultiBuyOffer(Item.E, 1, 0);
+        final MultiBuyOffer offer9 = new MultiBuyOffer(Item.F, 1, 0);
+        final MultiBuyOffer offer10 = new MultiBuyOffer(Item.F, 3, 10);
+        final List<MultiBuyOffer> multiBuyOffers = Arrays.asList(offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10);
+        multiBuyOffers.sort(Comparator.comparingInt(MultiBuyOffer::getDiscount));
+        final SpecialOffer specialOffer = new SpecialOffer(Item.E, 2, Item.B, 1);
+        orderedOffers = new ArrayList<>();
+        orderedOffers.add(specialOffer);
+        orderedOffers.addAll(multiBuyOffers);
     }
 
     public Integer checkout(String skus) {
@@ -53,4 +59,5 @@ public class CheckoutSolution {
         return totalSum;
     }
 }
+
 
