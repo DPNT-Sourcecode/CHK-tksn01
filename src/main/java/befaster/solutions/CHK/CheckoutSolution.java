@@ -23,7 +23,7 @@ public class CheckoutSolution {
         final MultiBuyOffer offer9 = new MultiBuyOffer(Item.F, 1, 0);
         final MultiBuyOffer offer10 = new MultiBuyOffer(Item.F, 3, 10);
         final List<MultiBuyOffer> multiBuyOffers = Arrays.asList(offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8, offer9, offer10);
-        multiBuyOffers.sort(Comparator.comparingInt(MultiBuyOffer::getDiscount));
+        multiBuyOffers.sort((o1, o2) -> Integer.compare(o2.getDiscount(), o1.getDiscount()));
         final SpecialOffer specialOffer = new SpecialOffer(Item.E, 2, Item.B, 1);
         orderedOffers = new ArrayList<>();
         orderedOffers.add(specialOffer);
@@ -59,5 +59,6 @@ public class CheckoutSolution {
         return totalSum;
     }
 }
+
 
 
