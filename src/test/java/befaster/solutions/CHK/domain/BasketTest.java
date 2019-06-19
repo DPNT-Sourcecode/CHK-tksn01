@@ -42,4 +42,24 @@ public class BasketTest {
         assertEquals(1, basket.getItems().get(Item.A).intValue());
         assertFalse(basket.getItems().containsKey(Item.B));
     }
+
+    @Test
+    public void should_return_correct_empty_flag() {
+        assertTrue(basket.isEmpty());
+
+        basket.addItem(Item.A);
+        assertFalse(basket.isEmpty());
+    }
+
+    @Test
+    public void should_return_correct_result_to_contains_call() {
+        basket.addItem(Item.A);
+        basket.addItem(Item.A);
+        basket.addItem(Item.B);
+
+        assertTrue(basket.contains(Item.A));
+        assertTrue(basket.contains(Item.A, 2));
+        assertFalse(basket.contains(Item.B, 2));
+        assertFalse(basket.contains(Item.C));
+    }
 }
