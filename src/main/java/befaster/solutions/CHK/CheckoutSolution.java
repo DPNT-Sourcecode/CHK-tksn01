@@ -43,4 +43,3 @@ public class CheckoutSolution {
         return totalSum;
     }
 }
-

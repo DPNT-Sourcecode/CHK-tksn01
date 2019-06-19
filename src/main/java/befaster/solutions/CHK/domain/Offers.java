@@ -53,5 +53,3 @@ public abstract class Offers {
         return orderedOffers;
     }
 }
-
-

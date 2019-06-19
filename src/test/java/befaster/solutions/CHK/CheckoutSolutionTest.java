@@ -57,4 +57,3 @@ public class CheckoutSolutionTest {
         TEST_CASES.forEach((skus, expectedTotal) -> assertEquals(expectedTotal, checkoutSolution.checkout(skus)));
     }
 }
-
