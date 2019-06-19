@@ -41,4 +41,3 @@ public enum Promotion {
         return saving;
     }
 }
-

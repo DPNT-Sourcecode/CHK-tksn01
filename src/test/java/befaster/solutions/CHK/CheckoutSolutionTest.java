@@ -91,4 +91,3 @@ public class CheckoutSolutionTest {
         assertEquals(expectedValue, result);
     }
 }
-
