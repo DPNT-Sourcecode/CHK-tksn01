@@ -1,43 +1,47 @@
 package befaster.solutions.CHK;
 
-import befaster.solutions.CHK.domain.Item;
-import befaster.solutions.CHK.domain.Promotion;
-import befaster.solutions.CHK.exception.NoPromotionAvailableException;
+import befaster.solutions.CHK.domain.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.List;
 
 public class CheckoutSolution {
+
+    private final List<Offer> orderedOffers;
+
+    public CheckoutSolution() {
+        final Offer offer1 = new MultiBuyOffer(Item.A, 3, 20);
+        final Offer offer2 = new MultiBuyOffer(Item.B, 2, 15);
+        final Offer offer3 = new MultiBuyOffer(Item.A, 1, 0);
+        final Offer offer4 = new MultiBuyOffer(Item.B, 1, 0);
+        final Offer offer5 = new MultiBuyOffer(Item.C, 1, 0);
+        final Offer offer6 = new MultiBuyOffer(Item.D, 1, 0);
+        orderedOffers = Arrays.asList(offer1, offer2, offer3, offer4, offer5, offer6);
+    }
 
     public Integer checkout(String skus) {
         if (skus == null) {
             return -1;
         }
 
-        final Map<Item, Integer> skusWithOccurrencesMap = new HashMap<>();
-        for (final Item item : Item.values()) {
-            skusWithOccurrencesMap.put(item, 0);
-        }
+        final Basket basket = new Basket();
 
         for (int index = 0; index < skus.length(); index++) {
             try {
                 final Item item = Item.valueOf(String.valueOf(skus.charAt(index)));
-                final Integer currentNumberOfOccurrences = skusWithOccurrencesMap.get(item);
-                skusWithOccurrencesMap.put(item, currentNumberOfOccurrences + 1);
+                basket.addItem(item);
             } catch (final Exception e) {
                 return -1;
             }
         }
 
         int totalSum = 0;
-        for (final Item item : skusWithOccurrencesMap.keySet()) {
-            final Integer numberOfOccurrences = skusWithOccurrencesMap.get(item);
-            try {
-                final Promotion promotion = Promotion.getByItem(item);
-                final int numberOfTimesToApplyPromotion = numberOfOccurrences / promotion.getQuantity();
-                totalSum += numberOfOccurrences * item.getPrice() - numberOfTimesToApplyPromotion * promotion.getSaving();
-            } catch (final NoPromotionAvailableException ignored) {
-                totalSum += numberOfOccurrences * item.getPrice();
+        while (!basket.isEmpty()) {
+            for (final Offer offer : orderedOffers) {
+                if (offer.supports(basket)) {
+                    totalSum += offer.applyTo(basket);
+                    break;
+                }
             }
         }
 

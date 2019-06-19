@@ -26,6 +26,10 @@ public final class Basket {
         }
     }
 
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
     public Map<Item, Integer> getItems() {
         return items;
     }
