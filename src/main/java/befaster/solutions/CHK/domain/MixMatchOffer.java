@@ -31,5 +31,3 @@ public class MixMatchOffer implements Offer {
         return offerValue;
     }
 }
-
-

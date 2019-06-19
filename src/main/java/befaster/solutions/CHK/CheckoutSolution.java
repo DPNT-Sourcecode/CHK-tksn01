@@ -26,5 +26,3 @@ public class CheckoutSolution {
         return checkoutService.calculateTotal(basket);
     }
 }
-
-

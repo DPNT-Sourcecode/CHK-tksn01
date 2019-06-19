@@ -18,4 +18,3 @@ public final class BasketFactory {
         return basket;
     }
 }
-
