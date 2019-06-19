@@ -19,7 +19,10 @@ public class MixMatchOffer implements Offer {
 
     @Override
     public boolean supports(final Basket basket) {
-        
+        final int totalQuantity = 0;
+        for (Item item : qualifyingItems) {
+            totalQuantity += basket.contains(item) ? basket.getItems().get(item) : 0;
+        }
         return false;
     }
 
@@ -28,4 +31,5 @@ public class MixMatchOffer implements Offer {
         return offerValue;
     }
 }
+
 
