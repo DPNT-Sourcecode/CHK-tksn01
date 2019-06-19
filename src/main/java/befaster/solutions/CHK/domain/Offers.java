@@ -21,6 +21,7 @@ public abstract class Offers {
     private static final MultiBuyOffer OFFER_9 = new MultiBuyOffer(Item.U, 4, 40);
     private static final MultiBuyOffer OFFER_10 = new MultiBuyOffer(Item.V, 2, 10);
     private static final MultiBuyOffer OFFER_11 = new MultiBuyOffer(Item.V, 3, 20);
+    private static final MultiBuyOffer OFFER_12 = new MultiBuyOffer(Item.B, 2, 15);
 
     private static final SpecialOffer SPECIAL_OFFER_1 = new SpecialOffer(Item.E, 2, Item.B, 1);
     private static final SpecialOffer SPECIAL_OFFER_2 = new SpecialOffer(Item.N, 3, Item.M, 1);
@@ -39,6 +40,7 @@ public abstract class Offers {
         multiBuyOffers.add(OFFER_9);
         multiBuyOffers.add(OFFER_10);
         multiBuyOffers.add(OFFER_11);
+        multiBuyOffers.add(OFFER_12);
 
         multiBuyOffers.sort((o1, o2) -> Integer.compare(o2.getDiscount(), o1.getDiscount()));
 
@@ -51,4 +53,5 @@ public abstract class Offers {
         return orderedOffers;
     }
 }
+
 

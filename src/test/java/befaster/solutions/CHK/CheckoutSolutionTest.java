@@ -35,6 +35,12 @@ public class CheckoutSolutionTest {
         put("FFF", 20);
         put("FF", 20);
         put("AFFAAF", 150);
+        put("HHHHH", 45);
+        put("HHHHHHHHHH", 80);
+        put("KK", 150);
+        put("NNNMM", 135);
+        put("UUUU", 120);
+        put("VV", 90);
     }};
 
     private CheckoutSolution checkoutSolution;
