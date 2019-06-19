@@ -19,15 +19,36 @@ public class MixMatchOffer implements Offer {
 
     @Override
     public boolean supports(final Basket basket) {
-        final int totalQuantity = 0;
-        for (Item item : qualifyingItems) {
-            totalQuantity += basket.contains(item) ? basket.getItems().get(item) : 0;
-        }
-        return false;
+        int totalQuantity = qualifyingItems.stream().mapToInt(item -> basket.contains(item) ? basket.getItems().get(item) : 0).sum();
+        return totalQuantity >= requiredQuantity;
     }
 
     @Override
     public int applyTo(final Basket basket) {
+
+        // greedy approach
+        int remainingQuantity = requiredQuantity;
+        for (final Item item : qualifyingItems) {
+
+            if (remainingQuantity <= 0) {
+                break;
+            }
+
+            int currentItemQuantity = basket.contains(item) ? basket.getItems().get(item) : 0;
+
+
+            if (currentItemQuantity == 0) {
+                continue;
+            }
+
+
+            final int quantityToRemove = Integer.min(remainingQuantity, currentItemQuantity);
+            basket.remove(item, quantityToRemove);
+            remainingQuantity -= currentItemQuantity;
+
+        }
+
         return offerValue;
     }
 }
+

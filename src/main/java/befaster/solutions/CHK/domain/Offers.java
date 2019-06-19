@@ -27,6 +27,9 @@ public abstract class Offers {
     private static final SpecialOffer SPECIAL_OFFER_2 = new SpecialOffer(Item.N, 3, Item.M, 1);
     private static final SpecialOffer SPECIAL_OFFER_3 = new SpecialOffer(Item.R, 3, Item.Q, 1);
 
+    private static final MixMatchOffer MIX_MATCH_OFFER = new MixMatchOffer(Arrays.asList(Item.S, Item.T, Item.X, Item.Y, Item.Z),
+            3, 45);
+
     public static List<Offer> getOrderedOffers() {
         final List<MultiBuyOffer> multiBuyOffers = Arrays.stream(Item.values()).map(item -> new MultiBuyOffer(item, 1, 0)).collect(Collectors.toList());
         multiBuyOffers.add(OFFER_1);
@@ -48,8 +51,10 @@ public abstract class Offers {
         orderedOffers.add(SPECIAL_OFFER_1);
         orderedOffers.add(SPECIAL_OFFER_2);
         orderedOffers.add(SPECIAL_OFFER_3);
+        orderedOffers.add(MIX_MATCH_OFFER);
         orderedOffers.addAll(multiBuyOffers);
 
         return orderedOffers;
     }
 }
+
