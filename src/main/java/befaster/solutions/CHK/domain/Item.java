@@ -4,7 +4,8 @@ public enum Item {
     A("A", 50),
     B("B", 30),
     C("C", 20),
-    D("D", 15);
+    D("D", 15),
+    E("E", 40);
 
     private final String sku;
     private final int price;
