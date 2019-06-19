@@ -1,6 +1,6 @@
 package befaster.solutions.CHK.domain;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public final class Basket {
@@ -8,7 +8,7 @@ public final class Basket {
     private Map<Item, Integer> items;
 
     public Basket() {
-        items = Collections.emptyMap();
+        items = new HashMap<>();
     }
 
     public void addItem(final Item item) {
