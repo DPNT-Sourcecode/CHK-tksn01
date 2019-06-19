@@ -43,6 +43,11 @@ public class CheckoutSolutionTest {
         put("VV", 90);
         put("VVV", 130);
         put("RQRR", 150);
+        put("SSS", 45);
+        put("STX", 45);
+        put("XYZ", 45);
+        put("XYT", 45);
+//        put("SAS", 90);
     }};
 
     private CheckoutSolution checkoutSolution;
