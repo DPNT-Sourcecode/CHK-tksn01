@@ -1,4 +1,5 @@
 package befaster.solutions.CHK.exception;
 
-public class InvalidSkuException {
+public final class InvalidSkuException extends Exception {
 }
+
