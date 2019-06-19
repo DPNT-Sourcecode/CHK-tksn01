@@ -43,11 +43,14 @@ public class CheckoutSolutionTest {
         put("VV", 90);
         put("VVV", 130);
         put("RQRR", 150);
-//        put("SSS", 45);
-//        put("STX", 45);
-//        put("XYZ", 45);
-//        put("XYT", 45);
-//        put("SAS", 90);
+        put("SSS", 45);
+        put("STX", 45);
+        put("XYZ", 45);
+        put("XYT", 45);
+        put("SAS", 90);
+        put("ZZZS", 65);
+        put("SSSYYY", 90);
+//        put("XYYZ", 62);
     }};
 
     private CheckoutSolution checkoutSolution;
@@ -62,4 +65,5 @@ public class CheckoutSolutionTest {
         TEST_CASES.forEach((skus, expectedTotal) -> assertEquals(expectedTotal, checkoutSolution.checkout(skus)));
     }
 }
+
 
