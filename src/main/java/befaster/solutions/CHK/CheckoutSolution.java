@@ -1,17 +1,14 @@
 package befaster.solutions.CHK;
 
 import befaster.solutions.CHK.domain.Basket;
-import befaster.solutions.CHK.domain.Offer;
-import befaster.solutions.CHK.domain.Offers;
 import befaster.solutions.CHK.exception.InvalidSkuException;
 import befaster.solutions.CHK.factory.BasketFactory;
-
-import java.util.List;
+import befaster.solutions.CHK.service.CheckoutService;
 
 public class CheckoutSolution {
 
-    private final List<Offer> orderedOffers = Offers.getOrderedOffers();
     private final BasketFactory basketFactory = new BasketFactory();
+    private final CheckoutService checkoutService = new CheckoutService();
 
     public Integer checkout(String skus) {
         if (skus == null) {
@@ -26,17 +23,8 @@ public class CheckoutSolution {
         }
 
 
-        int totalSum = 0;
-        while (!basket.isEmpty()) {
-            for (final Offer offer : orderedOffers) {
-                if (offer.supports(basket)) {
-                    totalSum += offer.applyTo(basket);
-                    break;
-                }
-            }
-        }
-
-        return totalSum;
+        return checkoutService.calculateTotal(basket);
     }
 }
+
 
