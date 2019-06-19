@@ -74,9 +74,34 @@ public class CheckoutSolutionTest {
 
     @Test
     public void should_apply_a_promotion_multiple_times_if_necessary() {
-        givenInputIs("AAABAAA");
+        givenInputIs("AAAAABAAAAA");
         whenICallCheckout();
-        thenResultIs(290);
+        thenResultIs(430);
+    }
+
+    @Test
+    public void should_apply_correct_offer_if_multiple_offers_for_same_item() {
+        givenInputIs("AAAAA");
+        whenICallCheckout();
+        thenResultIs(200);
+
+        givenInputIs("AAAAAAAA");
+        whenICallCheckout();
+        thenResultIs(250);
+    }
+
+    @Test
+    public void should_combine_best_offers_for_items() {
+        givenInputIs("AABABAA");
+        whenICallCheckout();
+        thenResultIs(245);
+    }
+
+    @Test
+    public void should_combine_all_promotions_on_the_same_item_if_enough_qty() {
+        givenInputIs("AAAAAAAA");
+        whenICallCheckout();
+        thenResultIs(330);
     }
 
     private void givenInputIs(final String value) {
