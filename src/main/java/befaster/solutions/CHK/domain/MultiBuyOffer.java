@@ -32,5 +32,3 @@ public class MultiBuyOffer implements Offer {
         return discount;
     }
 }
-
-
