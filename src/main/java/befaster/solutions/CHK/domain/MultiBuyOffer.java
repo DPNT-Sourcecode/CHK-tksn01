@@ -21,8 +21,9 @@ public class MultiBuyOffer implements Offer {
     public int applyTo(final Basket basket) {
         final int basketQuantity = basket.getItems().get(requiredItem);
         final int numberOfBulks = basketQuantity / requiredQuantity;
-        final int discountedPrice = requiredItem.getPrice() * basketQuantity - numberOfBulks * discount;
+        final int discountedPrice = requiredItem.getPrice() * requiredQuantity * numberOfBulks - numberOfBulks * discount;
         basket.remove(requiredItem, requiredQuantity * numberOfBulks);
         return discountedPrice;
     }
 }
+
