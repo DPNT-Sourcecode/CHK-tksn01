@@ -41,6 +41,8 @@ public class CheckoutSolutionTest {
         put("NNNMM", 135);
         put("UUUU", 120);
         put("VV", 90);
+        put("VVV", 130);
+        put("RQRR", 150);
     }};
 
     private CheckoutSolution checkoutSolution;
@@ -55,3 +57,4 @@ public class CheckoutSolutionTest {
         TEST_CASES.forEach((skus, expectedTotal) -> assertEquals(expectedTotal, checkoutSolution.checkout(skus)));
     }
 }
+
