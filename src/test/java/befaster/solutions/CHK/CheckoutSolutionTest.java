@@ -80,12 +80,15 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void should_apply_correct_offer_if_multiple_offers_for_same_item() {
+    public void should_apply_best_offer_for_an_item() {
         givenInputIs("AAAAA");
         whenICallCheckout();
         thenResultIs(200);
+    }
 
-        givenInputIs("AAAAAAAA");
+    @Test
+    public void should_apply_best_offer_for_an_item_and_combine_with_other_offers() {
+        givenInputIs("AAAAAA");
         whenICallCheckout();
         thenResultIs(250);
     }
@@ -116,3 +119,4 @@ public class CheckoutSolutionTest {
         assertEquals(expectedValue, result);
     }
 }
+
